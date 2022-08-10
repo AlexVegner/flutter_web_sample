@@ -10,4 +10,8 @@ build-html:
 	flutter build web --web-renderer html
 
 predeploy: build
-	yes | cp -rf build/web ./docs/
+	yes | cp -rf build/web/ ./demo/web/
+
+deploy: predeploy
+	cd demo && \
+	firebase deploy --only hosting
